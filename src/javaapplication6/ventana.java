@@ -202,6 +202,7 @@ public class ventana extends javax.swing.JFrame {
         aux = jTextArea2.getText().split("-", e1.getN());
         auxp = jTextArea1.getText().split("-", e1.getN());
         e1.CalcularNota(aux, auxp);
+        //with class
         /*for (int i = 0; i < e1.getN(); i++) {
             notas[i] = Double.parseDouble(aux[i]);
             porcentaje[i] = Integer.parseInt(auxp[i]);
