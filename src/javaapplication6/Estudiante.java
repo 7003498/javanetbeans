@@ -41,16 +41,20 @@ public class Estudiante {
     public String getAsigantura(){
         return asignatura;
     }
-    public void CalcularNota(){
-        
+    public void CalcularNota(String aux[], String auxp[]){
         for (int i = 0; i < n; i++) {
-                notFin += (notas[i]*porcentaje[i]/100);
+            notas[i] = Double.parseDouble(aux[i]);
+            porcentaje[i] = Integer.parseInt(auxp[i]);
+            notFin += Math.rint(notas[i]*porcentaje[i]/100);
         }
-        if (notFin < 3){
-            JOptionPane.showMessageDialog(null, "Su Nota final es de: " + notFin + " \nLo sentimos "+ nombre +" pero no aprobo la materia de "+asignatura+".", "Calificacion", JOptionPane.ERROR_MESSAGE);
+        if (notFin < 3 && notFin >= 2.6 ){
+            JOptionPane.showMessageDialog(null, "Su Nota final es de: " + notFin + " \nSr "+ nombre +" puede habilitar la materia de "+asignatura+".", "Calificacion", JOptionPane.ERROR_MESSAGE);
         }
-        else{
-        JOptionPane.showMessageDialog(null, "Su Nota final es de: " + notFin + "\nFelicidades "+ nombre+" aprobo la materia de "+ asignatura +".", "Calificacion", JOptionPane.INFORMATION_MESSAGE);
+        else if(notFin < 2.6){
+            JOptionPane.showMessageDialog(null, "Su Nota final es de: " + notFin + " \n Lo sentimos Sr "+ nombre +" reprobo la materia de "+asignatura+".", "Calificacion", JOptionPane.ERROR_MESSAGE);
+        } 
+        else {
+        JOptionPane.showMessageDialog(null, "Su Nota final es de: " + notFin + "\nFelicidades "+ nombre+" aprobo la materia de "+ asignatura+".", "Calificacion", JOptionPane.INFORMATION_MESSAGE);
         }
     }
     
